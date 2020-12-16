@@ -1,0 +1,8 @@
+Pokemon go
+
+Classes:
+Trainer --> pokemon (abstract): [Pokemon] --> Pikachu 
+            name: String                  --> Charmander
+            team: String                  --> Bulbasaur
+            badges: int
+            pokeballs: int
