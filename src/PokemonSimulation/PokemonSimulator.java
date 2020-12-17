@@ -1,14 +1,18 @@
 package PokemonSimulation;
 
+import java.util.*;
+
 public class PokemonSimulator {
 
   public static void main(String args[]) {
 
-    Pokemon pika = new Pokemon("Pikachu", "Lightning", 500);
-    Person ash = new Person("Ash", 15, pika);
+    Trainer ash = new Trainer("Ash", 15, new Pokemon("pika", "lightning", 200));
     System.out.println(ash);
-    ash.dance();
-
+    ash.addPokeballs(30);
+    ash.catchPokemon(new Pokemon("Charmander", "fire", 300));
+    System.out.println(ash);
+    ash.setActivePokemon(ash.getPokemon().get(1));
+    System.out.println(ash);
   }
 
 }

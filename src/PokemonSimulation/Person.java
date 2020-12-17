@@ -9,13 +9,11 @@ public class Person {
   private ArrayList<Pokemon> pokemon;
   private Pokemon activePokemon;
 
-  private static int maxPokemon = 5;
-
   public Person(String name, int age, Pokemon activePokemon) {
     this.name = name;
     this.age = age;
     this.activePokemon = activePokemon;
-    pokemon = new ArrayList<Pokemon>();
+    this.pokemon = new ArrayList<Pokemon>();
     this.pokemon.add(activePokemon);
   }
 
