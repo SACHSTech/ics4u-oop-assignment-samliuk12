@@ -48,17 +48,14 @@ public class Person {
     return activePokemon;
   }
 
-  public void setActivePokemon(Pokemon thePokemon) {
+  public boolean setActivePokemon(String thePokemon) {
     for (Pokemon currentPokemon: pokemon) {
-      if (thePokemon == currentPokemon) {
-        activePokemon = thePokemon;
-        return;
+      if (thePokemon.toLowerCase().equals(currentPokemon.getName().toLowerCase())) {
+        activePokemon = currentPokemon;
+        return true;
       }
     }
-  }
-
-  public void activePokemonAttack() {
-    activePokemon.attack();
+    return false;
   }
 
 }

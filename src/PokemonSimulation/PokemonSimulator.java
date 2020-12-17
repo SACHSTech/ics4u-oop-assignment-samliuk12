@@ -56,20 +56,20 @@ public class PokemonSimulator {
       pokemon1.attack();
       pokemon2.takeDamage(pokemon1.getAbilityDamage());
       System.out.println(pokemon2.getName() + " has " + pokemon2.getHealth() + " health left.");
+      pause(3000);
       // Check if Pokemon 2 has no health
       if (pokemon2.getHealth() == 0) {
         return pokemon1;
       }
-      pause(2000);
 
       pokemon2.attack();
       pokemon1.takeDamage(pokemon2.getAbilityDamage());
       System.out.println(pokemon1.getName() + " has " + pokemon1.getHealth() + " health left.");
+      pause(3000);
       // Check if Pokemon 1 has no health
       if (pokemon1.getHealth() == 0) {
         return pokemon2;
       }
-      pause(2000);
     }
 
   }
@@ -85,6 +85,10 @@ public class PokemonSimulator {
     int userAge;
     Pokemon userPokemon;
     String pokemonName;
+    Pokemon horsea;
+    GymOwner brock;
+    GymLocation rockyMountains;
+    String activePokemon;
 
     // Initialize variables
     pokemonName = "";
@@ -107,7 +111,6 @@ public class PokemonSimulator {
     pokemonName = keyboard.readLine().toLowerCase();
     while (!pokemonName.equals("charmander") && !pokemonName.equals("squirtle") && !pokemonName.equals("bulbasaur")) {
       System.out.println("Invalid option. Please try again.");
-      newLine();
       pokemonName = keyboard.readLine().toLowerCase();
     }
     newLine();
@@ -128,22 +131,24 @@ public class PokemonSimulator {
     newLine();
 
     // Catch first Pokemon
-    System.out.println("Let's go explore the world now! Oh look, a wild Horsea! Let's go catch it! Time to duel!");
+    System.out.println("Oh look, a wild Horsea! Time to duel it!");
     pause(3000);
     newLine();
 
     // Simulate fight with Horsea
-    Pokemon Horsea = new Pokemon("Horsea", "Water", "Sniper", 150, 310);
-    Pokemon winner = simulateBattle(user.getActivePokemon(), Horsea);
+    horsea = new Pokemon("Horsea", "Water", "Sniper", 150, 310);
+    Pokemon winner = simulateBattle(user.getActivePokemon(), horsea);
     newLine();
 
     // Catch Horsea
-    System.out.print(winner.getName() + " has won!. Before you catch the Horsea, you need pokeballs. How many pokeballs do you want? ");
+    System.out.print(winner.getName() + " has won! Before you catch the Horsea, you need pokeballs. How many pokeballs do you want? ");
     user.addPokeballs(Integer.parseInt(keyboard.readLine()));
     
     newLine();
-    System.out.println("Pokeballs have been successfully added! Horsea has been caught!");
-    user.catchPokemon(Horsea);
+    user.catchPokemon(horsea);
+    if (user.getPokeballs() > 0) {
+      System.out.println("Pokeballs have been successfully added! Horsea has been caught!");
+    }
     pause(2000);
 
     // Show updated user info
@@ -164,11 +169,48 @@ public class PokemonSimulator {
     }
     newLine();
     System.out.println("Pokemon have been regenerated! It's time to go to a Pokemon gym!");
+    pause(3000);
 
     // Find gym
     for (int i = 0; i < 3; i++) {
-      
+      System.out.println("Finding...");
+      pause(1000);
     }
+    System.out.println("A gym has been found!");
+    pause(2000);
+    newLine();
+
+    // Create gym owner and location object
+    rockyMountains = new GymLocation("Brock", "Pokeville", "sunny", 110);
+    brock = new GymOwner("Brock", 23, new Pokemon("Onix", "Rock", "Rock smash", 50, 600), rockyMountains);
+    System.out.println(rockyMountains);
+    pause(2000);
+    newLine();
+
+    // Talk with Brock
+    System.out.println(brock.getName() + ": Hey there " + user.getName() + ". I heard you wanted to challenge me!");
+    System.out.print("Type your response: ");
+    System.out.println(user.getName() + ": " + keyboard.readLine());
+    System.out.println(brock.getName() + ": Let's do this!");
+    pause(2000);
+    newLine();
+
+    System.out.println("Brock summons " + brock.getActivePokemon().getName() + "!");
+    newLine();
+    pause(1500);
+
+    // Choose the Pokemon that you want to summon!
+    System.out.print("It's time to choose your Pokemon! ");
+    activePokemon = keyboard.readLine();
+    while (!user.setActivePokemon(activePokemon)) {
+      System.out.println("Invalid option. Please try again! ");
+      activePokemon = keyboard.readLine();
+    }
+    newLine();
+
+    System.out.println("Pokemon has been selected. You chose: " + user.getActivePokemon().getName());
+    newLine();
+    pause(2000);
 
   }
 

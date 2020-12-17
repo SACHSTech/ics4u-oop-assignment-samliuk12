@@ -49,10 +49,7 @@ public class Trainer extends Person {
 
   public void catchPokemon(Pokemon newPokemon) {
     if (pokeballs <= 0) {
-      System.out.println("No pokeballs remaining!");
-    }
-    else if (getPokemon().size() > maxPokemon) {
-      System.out.println("Pokemon capacity is full!");
+      System.out.println("You have no pokeballs!");
     }
     else {
       getPokemon().add(newPokemon);
