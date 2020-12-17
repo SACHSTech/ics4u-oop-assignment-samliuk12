@@ -57,12 +57,8 @@ public class Person {
     }
   }
 
-  public void activePokemonAttack(String ability) {
-    activePokemon.attack(ability);
-  }
-
-  public void dance() {
-    System.out.println(name + " is dancing woooo!");
+  public void activePokemonAttack() {
+    activePokemon.attack();
   }
 
 }

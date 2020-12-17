@@ -5,6 +5,8 @@ public class Pokemon {
   // Instance variables
   private String name;
   private String type;
+  private String ability;
+  private int abilityDamage;
   private int maxHealth;
   private int health;
   private int evolution;
@@ -13,9 +15,11 @@ public class Pokemon {
   // Class variables
   private static double evolutionXP = 1000;
 
-  public Pokemon(String name, String type, int maxHealth) {
+  public Pokemon(String name, String type, String ability, int abilityDamage, int maxHealth) {
     this.name = name;
     this.type = type;
+    this.ability = ability;
+    this.abilityDamage = abilityDamage;
     this.maxHealth = maxHealth;
     this.health = maxHealth;
     this.evolution = 1;
@@ -34,6 +38,10 @@ public class Pokemon {
     return type;
   }
 
+  public int getAbilityDamage() {
+    return abilityDamage;
+  }
+
   public int getHealth() {
     return health;
   }
@@ -42,9 +50,8 @@ public class Pokemon {
     return xp;
   }
 
-  public void regenerateHealth(int amount) {
-    health += amount;
-    if (health > maxHealth) health = maxHealth;
+  public void regenerateHealth() {
+    health = maxHealth;
   }
 
   public void takeDamage(int amount) {
@@ -60,8 +67,8 @@ public class Pokemon {
     }
   }
 
-  public void attack(String ability) {
-    System.out.println(name + " uses " + ability);
+  public void attack() {
+    System.out.println(name + " uses " + ability + ", dealing " + abilityDamage + " damage.");
   }
 
 }
