@@ -33,19 +33,10 @@ public class GymOwner extends Person {
 
   public void addDefeat() {
     defeats++;
-    giveBadge();
   }
 
   public GymLocation getGymLocation() {
     return gymLocation;
-  }
-
-  public void acceptOpponent() {
-    System.out.println("A new opponent has been accepted");
-  }
-
-  private void giveBadge() {
-    System.out.println("A new badges has been given");
   }
 
 }

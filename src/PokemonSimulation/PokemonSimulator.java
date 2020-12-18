@@ -12,7 +12,7 @@ public class PokemonSimulator {
   */
   public static void displayLogo() {
 
-    System.out.println("\n    G A E T           P O\n  U Q P F G L         I N\nO R         F N       F C\nI Y L                 T U\nU P                   I L\nM L I                 R Z\n  K Q V               Q E\n      U T K           Y Q\n        B C P         P L\n          L U T       H J\n            R V Z     T V\n              P I     O P\n              O Q     E W\n V            Q N     N L\nW Y         A S       I Q\n  T R R P L I         S T L P Q U V R T K\n    L Q R T           B H V K A S L A J O\n"); 
+    System.out.println("\n    G A E T           P O\n  U Q P F G L         I N\nO R         F N       F C\nI Y L                 T U\nU P                   I L\nM L I                 R Z\n  K Q V               Q E\n      U T K           Y Q\n        B C P         P L\n          L U T       H J\n            R V Z     T V\n              P I     O P\n              O Q     E W\n V            Q N     N L\nW Y         A S       I Q\n  T R R P L I         S T L P Q U V R T K\n    L Q R T           B H V K A S L A J O\n\n"); 
 
     // Pause two three seconds before starting the game
     pause(2000);
@@ -42,38 +42,6 @@ public class PokemonSimulator {
     System.out.println();
   }
 
-  /**
-  * Simulates the battle between two Pokemon, returning the winner
-  *
-  * @param pokemon1 The first Pokemon
-  * @param pokemon2 The second Pokemon
-  * @return The winner
-  */
-  public static Pokemon simulateBattle(Pokemon pokemon1, Pokemon pokemon2) {
-
-    // The Pokemon take turns attacking until one of them runs out of health
-    while (true) {
-      pokemon1.attack();
-      pokemon2.takeDamage(pokemon1.getAbilityDamage());
-      System.out.println(pokemon2.getName() + " has " + pokemon2.getHealth() + " health left.");
-      pause(3000);
-      // Check if Pokemon 2 has no health
-      if (pokemon2.getHealth() == 0) {
-        return pokemon1;
-      }
-
-      pokemon2.attack();
-      pokemon1.takeDamage(pokemon2.getAbilityDamage());
-      System.out.println(pokemon1.getName() + " has " + pokemon1.getHealth() + " health left.");
-      pause(3000);
-      // Check if Pokemon 1 has no health
-      if (pokemon1.getHealth() == 0) {
-        return pokemon2;
-      }
-    }
-
-  }
-
   public static void main(String args[]) throws IOException {
 
     // Initialize buffered reader
@@ -86,6 +54,7 @@ public class PokemonSimulator {
     Pokemon userPokemon;
     String pokemonName;
     Pokemon horsea;
+    Pokemon winner;
     GymOwner brock;
     GymLocation rockyMountains;
     String activePokemon;
@@ -94,7 +63,7 @@ public class PokemonSimulator {
     pokemonName = "";
 
     // Introduction to game
-    // displayLogo();
+    displayLogo();
 
     // Get player name
     System.out.print("Welcome to the magical world of Pokemon. What should I call you? ");
@@ -107,9 +76,9 @@ public class PokemonSimulator {
     newLine();
 
     // Get player starting Pokemon
-    System.out.println("Great! Now it's time to choose your first Pokemon. Type out your full choice! \na) Charmander\nb) Squirtle\nc) Bulbasaur");
+    System.out.println("Great! Now it's time to choose your first Pokemon. Type the corrresponding letter. \na) Charmander\nb) Squirtle\nc) Bulbasaur");
     pokemonName = keyboard.readLine().toLowerCase();
-    while (!pokemonName.equals("charmander") && !pokemonName.equals("squirtle") && !pokemonName.equals("bulbasaur")) {
+    while (!pokemonName.equals("a") && !pokemonName.equals("b") && !pokemonName.equals("c")) {
       System.out.println("Invalid option. Please try again.");
       pokemonName = keyboard.readLine().toLowerCase();
     }
@@ -117,10 +86,10 @@ public class PokemonSimulator {
 
     // Create trainer object
     System.out.println("Here's what we have for you so far...");
-    if (pokemonName.equals("charmander")) {
+    if (pokemonName.equals("a")) {
       user = new Trainer(userName, userAge, new Pokemon("Charmander", "Fire", "Flamethrower", 200, 300));
     }
-    else if (pokemonName.equals("squirtle")) {
+    else if (pokemonName.equals("b")) {
       user = new Trainer(userName, userAge, new Pokemon("Squirtle", "Water", "Watergun", 300, 200));
     }
     else {
@@ -137,7 +106,7 @@ public class PokemonSimulator {
 
     // Simulate fight with Horsea
     horsea = new Pokemon("Horsea", "Water", "Sniper", 150, 310);
-    Pokemon winner = simulateBattle(user.getActivePokemon(), horsea);
+    winner = user.getActivePokemon().simulateBattle(horsea);
     newLine();
 
     // Catch Horsea
@@ -184,7 +153,7 @@ public class PokemonSimulator {
     rockyMountains = new GymLocation("Brock", "Pokeville", "sunny", 110);
     brock = new GymOwner("Brock", 23, new Pokemon("Onix", "Rock", "Rock smash", 50, 600), rockyMountains);
     System.out.println(rockyMountains);
-    pause(2000);
+    pause(3000);
     newLine();
 
     // Talk with Brock
@@ -194,7 +163,7 @@ public class PokemonSimulator {
     System.out.println(brock.getName() + ": Let's do this!");
     pause(2000);
     newLine();
-
+    // Brock summons Onix
     System.out.println("Brock summons " + brock.getActivePokemon().getName() + "!");
     newLine();
     pause(1500);
@@ -208,9 +177,44 @@ public class PokemonSimulator {
     }
     newLine();
 
-    System.out.println("Pokemon has been selected. You chose: " + user.getActivePokemon().getName());
+    // Have user select active Pokemon
+    System.out.println("Pokemon has been selected! You chose: " + user.getActivePokemon().getName());
+    pause(1500);
+    System.out.println("Let the battle begin!");
     newLine();
     pause(2000);
+
+    // Simulate battle
+    winner = user.getActivePokemon().simulateBattle(brock.getActivePokemon());
+    System.out.println(winner.getName() + " is the winner!");
+    pause(2000);
+    newLine();
+
+    // If the user's Pokemon won
+    if (winner == user.getActivePokemon()) {
+      System.out.println("Brock: Wow, I can't believe you won! Well done! Here is your rock badge for beating me!");
+      user.getActivePokemon().gainXP(100);
+      brock.getActivePokemon().gainXP(50);
+      brock.addDefeat();
+      user.addBadge();
+    }
+    // If Brock won
+    else {
+      System.out.println("Brock: That was a close one! Not bad for your first gym! That was fun!");
+      user.getActivePokemon().gainXP(50);
+      brock.getActivePokemon().gainXP(100);
+      brock.addVictory();
+    }
+
+    // Update variables
+    user.nextGym();
+
+    // Interact with user
+    System.out.print("Type your response: ");
+    System.out.println(user.getName() + ": " + keyboard.readLine());
+
+    newLine();
+    System.out.println("Well that's all we have for you today. Time to go back to your world! Thanks for playing!");
 
   }
 

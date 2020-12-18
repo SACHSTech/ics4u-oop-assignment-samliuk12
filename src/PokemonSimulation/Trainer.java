@@ -8,8 +8,6 @@ public class Trainer extends Person {
   private int pokeballs;
   private int gymsVisited;
 
-  private static int maxPokemon = 5;
-
   public Trainer(String name, int age, Pokemon activePokemon) {
     super(name, age, activePokemon);
     this.badges = 0;

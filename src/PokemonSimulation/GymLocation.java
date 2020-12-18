@@ -34,8 +34,4 @@ public class GymLocation {
     return population;
   }
 
-  public void changePopulation(int amount) {
-    population += amount;
-  }
-
 }
