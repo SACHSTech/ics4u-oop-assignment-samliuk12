@@ -29,16 +29,16 @@ public class Trainer extends Person {
     return pokeballs;
   }
 
+  public int getGymsVisited() {
+    return gymsVisited;
+  }
+
   public void addBadge() {
     badges++;
   }
 
   public void addPokeballs(int amount) {
     pokeballs += amount;
-  }
-
-  public int getGymsVisited() {
-    return gymsVisited;
   }
 
   public void nextGym() {
@@ -50,7 +50,7 @@ public class Trainer extends Person {
       System.out.println("You have no pokeballs!");
     }
     else {
-      getPokemon().add(newPokemon);
+      getPokemonList().add(newPokemon);
       pokeballs--;
     }
   }

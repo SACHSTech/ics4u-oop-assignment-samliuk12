@@ -133,7 +133,7 @@ public class PokemonSimulator {
       System.out.println("Regenerating...");
       pause(1000);
     }
-    for (Pokemon currentPokemon: user.getPokemon()) {
+    for (Pokemon currentPokemon: user.getPokemonList()) {
       currentPokemon.regenerateHealth();
     }
     newLine();

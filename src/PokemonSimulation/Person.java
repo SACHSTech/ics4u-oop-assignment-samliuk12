@@ -40,7 +40,7 @@ public class Person {
     return age;
   }
 
-  public ArrayList<Pokemon> getPokemon() {
+  public ArrayList<Pokemon> getPokemonList() {
     return pokemonList;
   }
 

@@ -64,7 +64,7 @@ public class Pokemon {
   * @param pauseLength The pause length 
   * @return void
   */
-  private static void pause(int pauseLength) {
+  private void pause(int pauseLength) {
     try {
         Thread.sleep(pauseLength);
     } catch (InterruptedException e) {
