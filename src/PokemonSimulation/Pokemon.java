@@ -33,10 +33,10 @@ public class Pokemon {
   /**
   * String representation of a Pokemon 
   *
-  * @return name, type, health, xp
+  * @return name, type, health, and xp
   */
   public String toString() {
-    return "Analyzing pokemon...\nName: " + name + "\nType: " + type + "\nHealth: " + health + "\nXP: " + xp + "\nYour pokemon looks healthy!";
+    return "Analyzing pokemon...\nName: " + name + "\nType: " + type + "\nHealth: " + health + "\nXP: " + xp;
   }
 
   /**
@@ -85,7 +85,7 @@ public class Pokemon {
   }
 
   /**
-  * Regenerates the health of the Pokemon to its maximum health
+  * Regenerates the health of the Pokemon to its maximum
   */
   public void regenerateHealth() {
     health = maxHealth;
@@ -94,7 +94,7 @@ public class Pokemon {
   /**
   * Causes the Pokemon to take damage 
   *
-  * @param amount - the amount of damage the Pokemon is to take 
+  * @param amount - the amount of damage taken by the Pokemon
   */
   public void takeDamage(int amount) {
     health -= amount;
@@ -105,7 +105,7 @@ public class Pokemon {
   /**
   * Causes the Pokemon to gain xp 
   *
-  * @param amount - the amount of xp the Pokemon is to gain 
+  * @param amount - the amount of xp the Pokemon gains
   */
   public void gainXP(double amount) {
     xp += amount;
@@ -114,7 +114,7 @@ public class Pokemon {
   /**
   * Pauses the program
   *
-  * @param pauseLength - the pause length 
+  * @param pauseLength - the pause length in milliseconds
   */
   private void pause(int pauseLength) {
     try {
@@ -134,8 +134,7 @@ public class Pokemon {
   /**
   * Simulates the battle between two Pokemon, returning the winner
   *
-  * @param pokemon1 - the first Pokemon
-  * @param otherPokemon - the second Pokemon
+  * @param otherPokemon - the other Pokemon
   * @return the winner
   */
   public Pokemon simulateBattle(Pokemon otherPokemon) {

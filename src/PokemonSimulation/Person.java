@@ -28,16 +28,16 @@ public class Person {
   /**
   * String reprensentation of a person
   *
-  * @return name, age, list of Pokemon, and active Pokemon
+  * @return name, age, list of Pokemon, and name of active Pokemon
   */
   public String toString() {
     return "Name: " + name + "\nAge: " + age + "\nPokemon: " + pokemonToString() + "\nActive pokemon: " + activePokemon.getName();
   }
 
   /**
-  * Private helper method that converts a list of the person's Pokemon into a string 
+  * Private helper method that converts a list of Pokemon into a string 
   *
-  * @return a list of the person's Pokemon 
+  * @return a string containing the person's Pokemon 
   */
   private String pokemonToString() {
     // Declare and initialize variables
@@ -90,13 +90,13 @@ public class Person {
   }
 
   /**
-  * Setter method for pokemonList
+  * Setter method for activePokemon
   *
   * @param thePokemon - new active Pokemon
   * @return if thePokemon was set as the activePokemon
   */
   public boolean setActivePokemon(String thePokemon) {
-    // Iterate through each Pokemon in the user's list of Pokemon, looking for a match
+    // Iterate through each Pokemon in the person's list of Pokemon, looking for a match
     for (Pokemon currentPokemon: pokemonList) {
       if (thePokemon.toLowerCase().equals(currentPokemon.getName().toLowerCase())) {
         activePokemon = currentPokemon;

@@ -13,7 +13,7 @@ public class GymOwner extends Person {
   * @param name - the name of the gym owner, passed into super constructor
   * @param age - the age of the gym owner, passed into super constructor
   * @param activePokemon - the gym owner's active Pokemon, passed into super constructor
-  * @param gymLocation - the location of the gym owner's gym
+  * @param gymLocation - the location of the gym
   */
   public GymOwner(String name, int age, Pokemon activePokemon, GymLocation gymLocation) {
     super(name, age, activePokemon);
@@ -25,12 +25,12 @@ public class GymOwner extends Person {
   /**
   * String representation of a gym owner
   *
-  * @return a description including all the characteristics of a Person, the number of victories, the number of defeats, and the city of the gym
+  * @return a description including all the characteristics of a Person, as well as victories, defeats and gym location
   */
   public String toString() {
-    String string = super.toString();
-    string += "\nVictories: " + victories + "\nDefeats: " + defeats + "\nGym location: " + gymLocation.getCity();
-    return string;
+    String gymOwnerString = super.toString();
+    gymOwnerString += "\nVictories: " + victories + "\nDefeats: " + defeats + "\nGym location: " + gymLocation.getCity();
+    return gymOwnerString;
   }
 
   /**

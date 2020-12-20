@@ -29,9 +29,9 @@ public class Trainer extends Person {
   * @return badges, pokeballs, and gyms visited
   */
   public String toString() {
-    String string = super.toString();
-    string += "\nBadges: " + badges + "\nPokeballs: " + pokeballs + "\nGyms visited: " + gymsVisited;
-    return string;
+    String trainerString = super.toString();
+    trainerString += "\nBadges: " + badges + "\nPokeballs: " + pokeballs + "\nGyms visited: " + gymsVisited;
+    return trainerString;
   }
 
   /**

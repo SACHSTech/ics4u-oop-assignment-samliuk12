@@ -6,7 +6,7 @@ import java.util.*;
 public class PokemonSimulator {
 
   /**
-  * Displays my logo
+  * Displays logo
   */
   public static void displayLogo() {
 
@@ -31,7 +31,7 @@ public class PokemonSimulator {
   }
 
   /**
-  * Creates new line
+  * Prints blank line
   */
   public static void newLine() {
     System.out.println();
@@ -43,15 +43,14 @@ public class PokemonSimulator {
     BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
     // Declare variables
-    Trainer user;
     String userName;
     int userAge;
-    Pokemon userPokemon;
     String pokemonName;
+    Trainer user;
     Pokemon horsea;
     Pokemon winner;
-    GymOwner brock;
     GymLocation rockyMountains;
+    GymOwner brock;
     String activePokemon;
 
     // Initialize variables
@@ -80,7 +79,6 @@ public class PokemonSimulator {
     newLine();
 
     // Create trainer object depending on the user's Pokemon selection
-    System.out.println("Here's what we have for you so far...");
     if (pokemonName.equals("a")) {
       user = new Trainer(userName, userAge, new Pokemon("Charmander", "Fire", "Flamethrower", 200, 300));
     }
@@ -90,6 +88,9 @@ public class PokemonSimulator {
     else {
       user = new Trainer(userName, userAge, new Pokemon("Bulbasaur", "Grass", "Vine whip", 175, 350));
     }
+
+    // Display user information
+    System.out.println("Here's what we have for you so far...");
     System.out.println(user);
     pause(5000);
     newLine();
@@ -197,7 +198,7 @@ public class PokemonSimulator {
     }
     // If Brock won
     else {
-      System.out.println("Brock: That was a close one! Not bad for your first gym! That was fun!");
+      System.out.println("Brock: That was a close one! Not bad for your first gym!");
       user.getActivePokemon().gainXP(50);
       brock.getActivePokemon().gainXP(100);
       brock.addVictory();
@@ -212,7 +213,7 @@ public class PokemonSimulator {
 
     // Conclusion
     newLine();
-    System.out.println("Well that's all we have for you today. Time to go back to your world! Thanks for playing!");
+    System.out.println("Well that's all I have for you today. Time to go back to your world! Thanks for playing!");
 
   }
 
