@@ -11,10 +11,10 @@ public class GymLocation {
   /**
   * Constructor - creates a new GymLocation instance
   *
-  * @param owner - the gym owner's full name, specified at the time of creation
-  * @param city - the city the gym is located in, specified at the time of creation 
-  * @param weather - the weather of the city, specified at the time of creation
-  * @param population - the population of the city, specified at the time of creation
+  * @param owner - the gym owner's full name
+  * @param city - the city the gym is located in
+  * @param weather - the weather of the city
+  * @param population - the population of the city
   */
   public GymLocation(String owner, String city, String weather, int population) {
     this.owner = owner;

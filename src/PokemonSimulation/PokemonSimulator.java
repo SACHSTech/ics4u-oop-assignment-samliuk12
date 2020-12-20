@@ -61,7 +61,7 @@ public class PokemonSimulator {
     displayLogo();
 
     // Get player name
-    System.out.print("Welcome to the magical world of Pokemon. What should I call you? ");
+    System.out.print("Hi, I'm Sam! Welcome to the magical world of Pokemonada. What should I call you? ");
     userName = keyboard.readLine();
     newLine();
 
@@ -79,7 +79,7 @@ public class PokemonSimulator {
     }
     newLine();
 
-    // Create trainer object
+    // Create trainer object depending on the user's Pokemon selection
     System.out.println("Here's what we have for you so far...");
     if (pokemonName.equals("a")) {
       user = new Trainer(userName, userAge, new Pokemon("Charmander", "Fire", "Flamethrower", 200, 300));
@@ -94,7 +94,7 @@ public class PokemonSimulator {
     pause(5000);
     newLine();
 
-    // Catch first Pokemon
+    // A wild Horsea has been found
     System.out.println("Oh look, a wild Horsea! Time to duel it!");
     pause(3000);
     newLine();
@@ -108,6 +108,7 @@ public class PokemonSimulator {
     System.out.print(winner.getName() + " has won! Before you catch the Horsea, you need pokeballs. How many pokeballs do you want? ");
     user.addPokeballs(Integer.parseInt(keyboard.readLine()));
     
+    // Catch Horsea if the user has 1 or more pokeballs
     newLine();
     user.catchPokemon(horsea);
     if (user.getPokeballs() > 0) {
@@ -144,7 +145,7 @@ public class PokemonSimulator {
     pause(2000);
     newLine();
 
-    // Create gym owner and location object
+    // Create gym owner and gym location object
     rockyMountains = new GymLocation("Brock", "Pokeville", "sunny", 110);
     brock = new GymOwner("Brock", 23, new Pokemon("Onix", "Rock", "Rock smash", 50, 600), rockyMountains);
     System.out.println(rockyMountains);
@@ -158,12 +159,13 @@ public class PokemonSimulator {
     System.out.println(brock.getName() + ": Let's do this!");
     pause(2000);
     newLine();
+
     // Brock summons Onix
     System.out.println("Brock summons " + brock.getActivePokemon().getName() + "!");
     newLine();
     pause(1500);
 
-    // Choose the Pokemon that you want to summon!
+    // Have user choose their Pokemon
     System.out.print("It's time to choose your Pokemon! ");
     activePokemon = keyboard.readLine();
     while (!user.setActivePokemon(activePokemon)) {
@@ -208,6 +210,7 @@ public class PokemonSimulator {
     System.out.print("Type your response: ");
     System.out.println(user.getName() + ": " + keyboard.readLine());
 
+    // Conclusion
     newLine();
     System.out.println("Well that's all we have for you today. Time to go back to your world! Thanks for playing!");
 

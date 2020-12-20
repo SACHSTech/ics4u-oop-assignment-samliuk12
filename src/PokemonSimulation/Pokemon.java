@@ -11,6 +11,15 @@ public class Pokemon {
   private int health;
   private double xp;
 
+  /**
+  * Constructor - creates a new Pokemon instance
+  *
+  * @param name - the Pokemon's name
+  * @param type - the Pokemon's type 
+  * @param ability - the Pokemon's ability 
+  * @param abilityDamage - the damage dealt by the Pokemon's ability 
+  * @param maxHealth - the maximum health of the Pokemon
+  */
   public Pokemon(String name, String type, String ability, int abilityDamage, int maxHealth) {
     this.name = name;
     this.type = type;
@@ -21,39 +30,83 @@ public class Pokemon {
     this.xp = 0.0;
   }
 
+  /**
+  * String representation of a Pokemon 
+  *
+  * @return name, type, health, xp
+  */
   public String toString() {
     return "Analyzing pokemon...\nName: " + name + "\nType: " + type + "\nHealth: " + health + "\nXP: " + xp + "\nYour pokemon looks healthy!";
   }
 
+  /**
+  * Getter method for name
+  *
+  * @return the Pokemon's name
+  */
   public String getName() {
     return name;
   }
 
+  /**
+  * Getter method for type
+  *
+  * @return the Pokemon's type
+  */
   public String getType() {
     return type;
   }
 
+  /**
+  * Getter method for ability damage
+  *
+  * @return the Pokemon's ability damage
+  */
   public int getAbilityDamage() {
     return abilityDamage;
   }
 
+  /**
+  * Getter method for health
+  *
+  * @return the Pokemon's health
+  */
   public int getHealth() {
     return health;
   }
 
+  /**
+  * Getter method for xp
+  *
+  * @return the Pokemon's xp
+  */
   public double getXP() {
     return xp;
   }
 
+  /**
+  * Regenerates the health of the Pokemon to its maximum health
+  */
   public void regenerateHealth() {
     health = maxHealth;
   }
 
+  /**
+  * Causes the Pokemon to take damage 
+  *
+  * @param amount - the amount of damage the Pokemon is to take 
+  */
   public void takeDamage(int amount) {
     health -= amount;
+    // Ensures the health is nonnegative
     if (health < 0) health = 0;
   }
 
+  /**
+  * Causes the Pokemon to gain xp 
+  *
+  * @param amount - the amount of xp the Pokemon is to gain 
+  */
   public void gainXP(double amount) {
     xp += amount;
   }
@@ -61,8 +114,7 @@ public class Pokemon {
   /**
   * Pauses the program
   *
-  * @param pauseLength The pause length 
-  * @return void
+  * @param pauseLength - the pause length 
   */
   private void pause(int pauseLength) {
     try {
@@ -72,6 +124,9 @@ public class Pokemon {
     }
   }
 
+  /**
+  * Prints the Pokemon's name, ability, and ability damage, simulating an attack
+  */
   public void attack() {
     System.out.println(name + " uses " + ability + ", dealing " + abilityDamage + " damage.");
   }
@@ -79,13 +134,13 @@ public class Pokemon {
   /**
   * Simulates the battle between two Pokemon, returning the winner
   *
-  * @param pokemon1 The first Pokemon
-  * @param otherPokemon The second Pokemon
-  * @return The winner
+  * @param pokemon1 - the first Pokemon
+  * @param otherPokemon - the second Pokemon
+  * @return the winner
   */
   public Pokemon simulateBattle(Pokemon otherPokemon) {
 
-    // The Pokemon take turns attacking until one of them runs out of health
+    // The Pokemon take turns attacking each other until one of them runs out of health
     while (true) {
       attack();
       otherPokemon.takeDamage(abilityDamage);
