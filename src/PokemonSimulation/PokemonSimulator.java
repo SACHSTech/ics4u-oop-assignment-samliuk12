@@ -61,7 +61,7 @@ public class PokemonSimulator {
     displayLogo();
 
     // Make Sam 
-    sam = new Person("Sam", age, new Pokemon("Infernape", "Fire", "Instakill", 999, 999));
+    sam = new Person("Sam", 17, new Pokemon("Infernape", "Fire", "Instakill", 999, 999));
 
     // Get player name
     System.out.print("Hi, I'm " + sam.getName() + "! Welcome to the magical world of Pokemonada. What should I call you? ");
