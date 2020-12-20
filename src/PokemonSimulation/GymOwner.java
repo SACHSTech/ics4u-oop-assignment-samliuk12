@@ -1,11 +1,20 @@
 package PokemonSimulation;
 
 public class GymOwner extends Person {
-
+  
+  // Instance variables
   private int victories;
   private int defeats;
   private GymLocation gymLocation;
-
+  
+  /**
+  * Constructor - creates a new GymOwner instance
+  *
+  * @param name - the name of the gym owner, passed into super constructor
+  * @param age - the age of the gym owner, passed into super constructor
+  * @param activePokemon - the gym owner's active Pokemon, passed into super constructor
+  * @param gymLocation - the location of the gym owner's gym
+  */
   public GymOwner(String name, int age, Pokemon activePokemon, GymLocation gymLocation) {
     super(name, age, activePokemon);
     victories = 0;
