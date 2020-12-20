@@ -43,6 +43,7 @@ public class PokemonSimulator {
     BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
     // Declare variables
+    Person sam;
     String userName;
     int userAge;
     String pokemonName;
@@ -59,8 +60,11 @@ public class PokemonSimulator {
     // Display game logo
     displayLogo();
 
+    // Make Sam 
+    sam = new Person("Sam", age, new Pokemon("Infernape", "Fire", "Instakill", 999, 999));
+
     // Get player name
-    System.out.print("Hi, I'm Sam! Welcome to the magical world of Pokemonada. What should I call you? ");
+    System.out.print("Hi, I'm " + sam.getName() + "! Welcome to the magical world of Pokemonada. What should I call you? ");
     userName = keyboard.readLine();
     newLine();
 
