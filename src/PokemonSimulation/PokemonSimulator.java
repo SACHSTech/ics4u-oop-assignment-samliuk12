@@ -7,14 +7,12 @@ public class PokemonSimulator {
 
   /**
   * Displays my logo
-  *
-  * @return void
   */
   public static void displayLogo() {
 
     System.out.println("\n    G A E T           P O\n  U Q P F G L         I N\nO R         F N       F C\nI Y L                 T U\nU P                   I L\nM L I                 R Z\n  K Q V               Q E\n      U T K           Y Q\n        B C P         P L\n          L U T       H J\n            R V Z     T V\n              P I     O P\n              O Q     E W\n V            Q N     N L\nW Y         A S       I Q\n  T R R P L I         S T L P Q U V R T K\n    L Q R T           B H V K A S L A J O\n\n"); 
 
-    // Pause two three seconds before starting the game
+    // Pause two seconds before starting the game
     pause(2000);
 
   }
@@ -22,8 +20,7 @@ public class PokemonSimulator {
   /**
   * Pauses the program
   *
-  * @param pauseLength The pause length 
-  * @return void
+  * @param pauseLength - the pause length 
   */
   private static void pause(int pauseLength) {
     try {
@@ -35,8 +32,6 @@ public class PokemonSimulator {
 
   /**
   * Creates new line
-  *
-  * @return void
   */
   public static void newLine() {
     System.out.println();
@@ -62,7 +57,7 @@ public class PokemonSimulator {
     // Initialize variables
     pokemonName = "";
 
-    // Introduction to game
+    // Display game logo
     displayLogo();
 
     // Get player name
