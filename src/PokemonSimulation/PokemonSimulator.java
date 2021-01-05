@@ -22,7 +22,7 @@ public class PokemonSimulator {
   *
   * @param pauseLength - the pause length 
   */
-  private static void pause(int pauseLength) {
+  public static void pause(int pauseLength) {
     try {
         Thread.sleep(pauseLength);
     } catch (InterruptedException e) {
