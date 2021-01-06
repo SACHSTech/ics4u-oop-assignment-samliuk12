@@ -2,6 +2,11 @@ package PokemonSimulation;
 
 import java.util.*;
 
+/**
+* Person class file
+*
+* @author S.Liu
+*/
 public class Person {
 
   // Instance variables

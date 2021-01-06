@@ -1,5 +1,10 @@
 package PokemonSimulation;
 
+/**
+* GymLocation class file
+*
+* @author S.Liu
+*/
 public class GymLocation {
 
   // Instance variables

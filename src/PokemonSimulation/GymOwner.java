@@ -1,5 +1,10 @@
 package PokemonSimulation;
 
+/**
+* GymOwner class file
+*
+* @author S.Liu
+*/
 public class GymOwner extends Person {
   
   // Instance variables

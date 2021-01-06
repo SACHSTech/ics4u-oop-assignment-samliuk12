@@ -2,6 +2,11 @@ package PokemonSimulation;
 
 import java.util.*;
 
+/**
+* Trainer class file
+*
+* @author S.Liu
+*/
 public class Trainer extends Person {
 
   // Instance variables

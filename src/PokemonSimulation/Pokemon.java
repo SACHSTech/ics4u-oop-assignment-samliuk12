@@ -1,5 +1,10 @@
 package PokemonSimulation;
 
+/**
+* Pokemon class file
+*
+* @author S.Liu
+*/
 public class Pokemon {
 
   // Instance variables

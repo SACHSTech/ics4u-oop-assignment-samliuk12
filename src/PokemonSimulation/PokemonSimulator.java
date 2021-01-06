@@ -3,6 +3,11 @@ package PokemonSimulation;
 import java.io.*;
 import java.util.*;
 
+/**
+* PokemonSimulator file
+*
+* @author S.Liu
+*/
 public class PokemonSimulator {
 
   /**
