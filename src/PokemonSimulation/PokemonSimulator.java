@@ -42,6 +42,9 @@ public class PokemonSimulator {
     System.out.println();
   }
 
+  /**
+  * Main method
+  */
   public static void main(String args[]) throws IOException {
 
     // Initialize buffered reader
